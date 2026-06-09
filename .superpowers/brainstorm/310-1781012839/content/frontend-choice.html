@@ -1,0 +1,157 @@
+<h2>前端框架选型 — 搭配 FastAPI 后端</h2>
+<p class="subtitle">个人技术博客 • 需要 Markdown 渲染 + 代码高亮</p>
+
+<div class="split">
+  <div class="mockup">
+    <div class="mockup-header">方案 A: React</div>
+    <div class="mockup-body">
+      <div style="text-align:center;margin:8px 0">
+        <span style="background:#61dafb;color:#000;padding:3px 10px;border-radius:4px;font-size:14px;font-weight:bold">React 19</span>
+      </div>
+      <div class="pros-cons">
+        <div class="pros"><h4>优势</h4>
+          <ul>
+            <li>生态最大 — Markdown 组件、代码高亮插件应有尽有</li>
+            <li>配合 Next.js 可 SSR，SEO 优秀</li>
+            <li>招聘/协作容易，社区资源多</li>
+            <li>TypeScript 支持最好</li>
+          </ul>
+        </div>
+        <div class="cons"><h4>劣势</h4>
+          <ul>
+            <li>JSX、Hooks、状态管理 — 概念多</li>
+            <li>配置繁琐（Webpack/Vite 需要搭建）</li>
+            <li>包体积较大</li>
+            <li>简单博客可能"用力过猛"</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-header">方案 B: Vue</div>
+    <div class="mockup-body">
+      <div style="text-align:center;margin:8px 0">
+        <span style="background:#42b883;color:#fff;padding:3px 10px;border-radius:4px;font-size:14px;font-weight:bold">Vue 3</span>
+      </div>
+      <div class="pros-cons">
+        <div class="pros"><h4>优势</h4>
+          <ul>
+            <li>上手最简单 — 模板语法接近原生 HTML</li>
+            <li>SFC 单文件组件，结构清晰</li>
+            <li>Vite 开箱即用，配置少</li>
+            <li>文档中文友好</li>
+            <li>Pinia 状态管理直观</li>
+          </ul>
+        </div>
+        <div class="cons"><h4>劣势</h4>
+          <ul>
+            <li>SSR 方案（Nuxt）不如 Next.js 成熟</li>
+            <li>Markdown 生态略小于 React</li>
+            <li>大型项目经验不如 React 丰富</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="split">
+  <div class="mockup">
+    <div class="mockup-header">方案 C: Svelte</div>
+    <div class="mockup-body">
+      <div style="text-align:center;margin:8px 0">
+        <span style="background:#ff3e00;color:#fff;padding:3px 10px;border-radius:4px;font-size:14px;font-weight:bold">Svelte 5</span>
+      </div>
+      <div class="pros-cons">
+        <div class="pros"><h4>优势</h4>
+          <ul>
+            <li>代码量最少，写起来最爽</li>
+            <li>编译时框架 — 无虚拟 DOM，运行时零开销</li>
+            <li>包体积最小，加载极快</li>
+            <li>SvelteKit 提供 SSR</li>
+          </ul>
+        </div>
+        <div class="cons"><h4>劣势</h4>
+          <ul>
+            <li>生态最小 — Markdown/代码高亮方案少</li>
+            <li>社区小，遇到问题难以搜索</li>
+            <li>语法"非主流"，学了只用于 Svelte</li>
+            <li>就业市场上需求低</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-header">方案 D: 纯 HTML + Alpine.js</div>
+    <div class="mockup-body">
+      <div style="text-align:center;margin:8px 0">
+        <span style="background:#8e9eab;color:#fff;padding:3px 10px;border-radius:4px;font-size:14px;font-weight:bold">Alpine.js + HTMX</span>
+      </div>
+      <div class="pros-cons">
+        <div class="pros"><h4>优势</h4>
+          <ul>
+            <li>没有构建步骤，直接写就运行</li>
+            <li>学习成本极低</li>
+            <li>页面加载最快</li>
+            <li>与 Jinja2 模板完美结合</li>
+          </ul>
+        </div>
+        <div class="cons"><h4>劣势</h4>
+          <ul>
+            <li>不是真正的 SPA — 前后端分离不彻底</li>
+            <li>复杂交互难维护</li>
+            <li>Markdown 需在服务端渲染</li>
+            <li>SEO 靠服务端模板，灵活性受限</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2>博客场景适用度评分</h2>
+
+<table class="score-table">
+  <tr><th>维度</th><th>A — React</th><th>B — Vue</th><th>C — Svelte</th><th>D — 纯 HTML</th></tr>
+  <tr><td>学习友好度</td><td>⭐⭐⭐</td><td class="win">⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td class="win">⭐⭐⭐⭐⭐</td></tr>
+  <tr><td>Markdown 生态</td><td class="win">⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐</td><td>⭐⭐</td></tr>
+  <tr><td>代码高亮方案</td><td class="win">⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐</td><td>⭐⭐</td></tr>
+  <tr><td>SEO 能力</td><td class="win">⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐</td></tr>
+  <tr><td>前后端分离度</td><td class="win">⭐⭐⭐⭐⭐</td><td class="win">⭐⭐⭐⭐⭐</td><td class="win">⭐⭐⭐⭐⭐</td><td>⭐⭐</td></tr>
+  <tr><td>个人开发体验</td><td>⭐⭐⭐</td><td class="win">⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐</td></tr>
+</table>
+
+<div class="options">
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>推荐: Vue 3</h3>
+      <p>学习曲线最平缓，文档中文友好，搭配 Vite 开箱即用。个人开发体验最佳，且 Markdown 生态足够用</p>
+    </div>
+  </div>
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>React</h3>
+      <p>生态最强、SEO 最优，但学习成本较高，适合对 React 已有了解的情况</p>
+    </div>
+  </div>
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Svelte</h3>
+      <p>写起来最爽但生态太小，技术博客所需的 Markdown 方案需要自己拼装</p>
+    </div>
+  </div>
+  <div class="option" data-choice="d" onclick="toggleSelect(this)">
+    <div class="letter">D</div>
+    <div class="content">
+      <h3>纯 HTML + Alpine.js</h3>
+      <p>简单到极致，但前后端分离不彻底，Markdown 处理靠后端</p>
+    </div>
+  </div>
+</div>
