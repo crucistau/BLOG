@@ -4,7 +4,17 @@
   @description Root application component with Navbar and router-view
 -->
 <script setup>
+import { watch } from 'vue'
+import { useRoute } from 'vue-router'
 import Navbar from './components/Navbar.vue'
+import { trackPageView } from './api/index.js'
+
+const route = useRoute()
+watch(() => route.path, (path) => {
+  if (!path.startsWith('/admin')) {
+    trackPageView(path).catch(() => {})
+  }
+}, { immediate: true })
 </script>
 
 <template>

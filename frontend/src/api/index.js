@@ -125,4 +125,38 @@ export function adminDeleteCategory(id) {
   return api.delete(`/admin/categories/${id}`)
 }
 
+// === Analytics ===
+
+export function trackPageView(path) {
+  return api.post('/analytics/track', { path })
+}
+
+export function adminGetAnalyticsOverview() {
+  return api.get('/admin/analytics/overview')
+}
+
+export function adminGetAnalyticsTrend(days = 7) {
+  return api.get('/admin/analytics/trend', { params: { days } })
+}
+
+export function adminGetAnalyticsRegion() {
+  return api.get('/admin/analytics/region')
+}
+
+export function adminGetAnalyticsCities(province) {
+  return api.get('/admin/analytics/cities', { params: { province } })
+}
+
+export function adminGetPopularPages(limit = 10) {
+  return api.get('/admin/analytics/popular-pages', { params: { limit } })
+}
+
+export function adminGetDevices() {
+  return api.get('/admin/analytics/devices')
+}
+
+export function adminGetReferers(limit = 10) {
+  return api.get('/admin/analytics/referers', { params: { limit } })
+}
+
 export default api
