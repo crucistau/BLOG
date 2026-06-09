@@ -4,6 +4,11 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
+from app.routers import categories, posts, tags
+from app.routers.admin import auth as admin_auth
+from app.routers.admin import categories as admin_categories
+from app.routers.admin import posts as admin_posts
+from app.routers.admin import tags as admin_tags
 
 
 @asynccontextmanager
@@ -20,6 +25,17 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Public routes
+app.include_router(categories.router)
+app.include_router(tags.router)
+app.include_router(posts.router)
+
+# Admin routes
+app.include_router(admin_auth.router)
+app.include_router(admin_posts.router)
+app.include_router(admin_tags.router)
+app.include_router(admin_categories.router)
 
 
 @app.get("/api/v1/health")
